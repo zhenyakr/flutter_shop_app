@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shop_app/providers/cart.dart';
 import 'package:provider/provider.dart';
+import '../providers/cart.dart';
 
 class CartItem extends StatelessWidget {
   final String title;
@@ -27,17 +27,18 @@ class CartItem extends StatelessWidget {
         return showDialog(
           context: context,
           builder: (ctx) => AlertDialog(
-            title: Text('Are you sure?'),
-            content: Text('Do you want to remove this item from the cart?'),
+            title: const Text('Are you sure?'),
+            content:
+                const Text('Do you want to remove this item from the cart?'),
             actions: [
               FlatButton(
-                child: Text('No'),
+                child: const Text('No'),
                 onPressed: () {
                   Navigator.of(ctx).pop(false);
                 },
               ),
               FlatButton(
-                child: Text('Yes'),
+                child: const Text('Yes'),
                 onPressed: () {
                   Navigator.of(ctx).pop(true);
                 },
@@ -51,7 +52,7 @@ class CartItem extends StatelessWidget {
       },
       background: Container(
         color: Theme.of(context).errorColor,
-        child: Icon(
+        child: const Icon(
           Icons.delete,
           color: Colors.white,
           size: 40,

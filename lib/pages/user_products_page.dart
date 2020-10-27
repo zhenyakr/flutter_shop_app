@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shop_app/pages/edit_product_page.dart';
-import 'package:flutter_shop_app/widgets/app_drawer.dart';
-import 'package:flutter_shop_app/widgets/user_product_item.dart';
 import 'package:provider/provider.dart';
+import '../pages/edit_product_page.dart';
+import '../widgets/app_drawer.dart';
+import '../widgets/user_product_item.dart';
 import '../providers/products_provider.dart';
 
 class UserProductsPage extends StatelessWidget {
@@ -13,11 +13,11 @@ class UserProductsPage extends StatelessWidget {
     final productsData = Provider.of<Products>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your Products'),
+        title: const Text('Your Products'),
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.add),
+            icon: const Icon(Icons.add),
             onPressed: () {
               Navigator.of(context).pushNamed(EditProductPage.routeName);
             },
@@ -35,7 +35,7 @@ class UserProductsPage extends StatelessWidget {
                 productsData.items[i].title,
                 productsData.items[i].imageUrl,
               ),
-              Divider(),
+              const Divider(),
             ],
           ),
           itemCount: productsData.items.length,

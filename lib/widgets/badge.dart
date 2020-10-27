@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//badge for total amount widget
 class Badge extends StatelessWidget {
   const Badge({
     Key key,

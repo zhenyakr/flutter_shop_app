@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shop_app/providers/product.dart';
+import '../providers/product.dart';
 
 class Products with ChangeNotifier {
+  //default products list
   List<Product> _items = [
     Product(
       id: 'p1',
@@ -36,28 +37,11 @@ class Products with ChangeNotifier {
           'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Cast-Iron-Pan.jpg/1024px-Cast-Iron-Pan.jpg',
     ),
   ];
-  //var _showFavoritesOnly = false;
 
   List<Product> get items {
-    //if (_showFavoritesOnly) {
-    //  return _items.where((prodItem) => prodItem.isFavorite).toList();
-    //}
     return [..._items];
   }
 
-  //void showFavoritesOnly() {
-  //  _showFavoritesOnly = true;
-  //  notifyListeners();
-  //}
-
-  //void showAll() {
-  //  _showFavoritesOnly = false;
-  //  notifyListeners();
-  //}
-
-  //List<Product> get items {
-  //  return [..._items];
-  //}
   List<Product> get favoriteItems {
     return _items.where((prodItem) => prodItem.isFavorite).toList();
   }

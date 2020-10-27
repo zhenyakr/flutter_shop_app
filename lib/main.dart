@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shop_app/pages/edit_product_page.dart';
-import 'package:flutter_shop_app/pages/orders_page.dart';
-import 'package:flutter_shop_app/pages/user_products_page.dart';
-import 'package:flutter_shop_app/providers/orders.dart';
 import 'package:provider/provider.dart';
 
 import './pages/product_detail_page.dart';
@@ -10,6 +6,10 @@ import './pages/products_overview_page.dart';
 import './providers/products_provider.dart';
 import './providers/cart.dart';
 import './pages/cart_page.dart';
+import './pages/edit_product_page.dart';
+import './pages/orders_page.dart';
+import './pages/user_products_page.dart';
+import './providers/orders.dart';
 
 void main() => runApp(MyApp());
 

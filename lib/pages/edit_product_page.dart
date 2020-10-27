@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shop_app/providers/product.dart';
-import 'package:flutter_shop_app/providers/products_provider.dart';
 import 'package:provider/provider.dart';
+
+import '../providers/product.dart';
+import '../providers/products_provider.dart';
 
 class EditProductPage extends StatefulWidget {
   static const routeName = '/edit-product';
@@ -59,6 +60,7 @@ class _EditProductPageState extends State<EditProductPage> {
 
   @override
   void dispose() {
+    //dispose all focus nodes for preventing memory leaks
     _priceFocusNode.dispose();
     _descriptionFocusNode.dispose();
     _imageUrlController.dispose();
@@ -99,11 +101,11 @@ class _EditProductPageState extends State<EditProductPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Edit Product'),
+        title: const Text('Edit Product'),
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.save),
+            icon: const Icon(Icons.save),
             onPressed: _saveForm,
           ),
         ],
@@ -114,9 +116,10 @@ class _EditProductPageState extends State<EditProductPage> {
           key: _form,
           child: ListView(
             children: [
+              // title text form
               TextFormField(
                 initialValue: _initValues['title'],
-                decoration: InputDecoration(labelText: 'Title'),
+                decoration: const InputDecoration(labelText: 'Title'),
                 textInputAction: TextInputAction.next,
                 onFieldSubmitted: (_) {
                   FocusScope.of(context).requestFocus(_priceFocusNode);
@@ -138,9 +141,10 @@ class _EditProductPageState extends State<EditProductPage> {
                   return null;
                 },
               ),
+              // price text form
               TextFormField(
                 initialValue: _initValues['price'],
-                decoration: InputDecoration(labelText: 'Price'),
+                decoration: const InputDecoration(labelText: 'Price'),
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.number,
                 focusNode: _priceFocusNode,
@@ -170,9 +174,10 @@ class _EditProductPageState extends State<EditProductPage> {
                   return null;
                 },
               ),
+              //description text form
               TextFormField(
                 initialValue: _initValues['description'],
-                decoration: InputDecoration(labelText: 'Description'),
+                decoration: const InputDecoration(labelText: 'Description'),
                 maxLines: 3,
                 keyboardType: TextInputType.multiline,
                 focusNode: _descriptionFocusNode,
@@ -196,6 +201,7 @@ class _EditProductPageState extends State<EditProductPage> {
                   return null;
                 },
               ),
+              //image url text form and image url text field
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
@@ -207,7 +213,7 @@ class _EditProductPageState extends State<EditProductPage> {
                       border: Border.all(width: 1, color: Colors.grey),
                     ),
                     child: _imageUrlController.text.isEmpty
-                        ? Center(child: Text('Enter a URL'))
+                        ? const Text('Enter a URL')
                         : FittedBox(
                             fit: BoxFit.cover,
                             child: Image.network(_imageUrlController.text),
@@ -215,7 +221,7 @@ class _EditProductPageState extends State<EditProductPage> {
                   ),
                   Expanded(
                     child: TextFormField(
-                      decoration: InputDecoration(labelText: 'Image URL'),
+                      decoration: const InputDecoration(labelText: 'Image URL'),
                       keyboardType: TextInputType.url,
                       textInputAction: TextInputAction.done,
                       controller: _imageUrlController,
