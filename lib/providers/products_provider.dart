@@ -75,7 +75,7 @@ class Products with ChangeNotifier {
       id: DateTime.now().toString(),
     );
     _items.add(newProduct);
-    _items.insert(0, newProduct);
+    //_items.insert(0, newProduct);
     notifyListeners();
   }
 
