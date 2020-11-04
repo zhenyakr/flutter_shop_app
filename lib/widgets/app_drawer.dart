@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop_app/helpers/custom_route.dart';
 import 'package:flutter_shop_app/providers/auth.dart';
 import 'package:provider/provider.dart';
 import '../pages/user_products_page.dart';
@@ -35,8 +36,10 @@ class AppDrawer extends StatelessWidget {
             leading: const Icon(Icons.edit),
             title: const Text('Manage Products'),
             onTap: () {
-              Navigator.of(context)
-                  .pushReplacementNamed(UserProductsPage.routeName);
+              Navigator.of(context).pushReplacementNamed(OrdersPage.routeName);
+              /*Navigator.of(context).pushReplacement(CustomRoute(
+                builder: (ctx) => OrdersPage(),
+              ));*/
             },
           ),
           Divider(),
